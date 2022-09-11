@@ -2,9 +2,14 @@ package com.kakase9.domain.entity;
 
 import java.util.Date;
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * 文章表(Article)表实体类
@@ -16,9 +21,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@TableName("sg_article")
+@Accessors(chain = true)
 public class Article {
-    
+    @TableId
     private Long id;
+
+    @TableField(exist = false)
+    private String categoryName;
     //标题
     private String title;
     //文章内容
@@ -37,6 +47,8 @@ public class Article {
     private Long viewCount;
     //是否允许评论 1是，0否
     private String isComment;
+
+
     
     private Long createBy;
     
