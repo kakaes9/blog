@@ -21,6 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    //加密功能
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -48,6 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //注销接口需要认证才能访问
                 .antMatchers("/logout").authenticated()
                 .antMatchers("/user/userInfo").authenticated()
+//                .antMatchers("/upload").authenticated()
                 //jwt过滤器测试用，如果测试没有问题吧这里删除了
 //                .antMatchers("/link/getAllLink").authenticated()
                 // 除上面外的所有请求全部不需要认证即可访问
