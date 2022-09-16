@@ -1,6 +1,7 @@
 package com.kakase9.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.kakase9.domain.ResponseResult;
 import com.kakase9.domain.entity.User;
 
 
@@ -12,4 +13,5 @@ import com.kakase9.domain.entity.User;
  */
 public interface UserService extends IService<User> {
 
+    ResponseResult userInfo();
 }
