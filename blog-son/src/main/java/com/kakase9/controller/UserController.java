@@ -1,5 +1,6 @@
 package com.kakase9.controller;
 
+import com.kakase9.annotation.SystemLog;
 import com.kakase9.domain.ResponseResult;
 import com.kakase9.domain.entity.User;
 import com.kakase9.service.UserService;
@@ -19,6 +20,7 @@ public class UserController {
     }
 
     @PutMapping("/userInfo")
+    @SystemLog(businessName = "更新用户信息")
     public ResponseResult updateUserInfo(@RequestBody User user){
         return userService.updateUserInfo(user);
     }
